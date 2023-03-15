@@ -6,8 +6,10 @@ import { CreateBoardDto } from './dto/create-board.dto';
 
 export class BoardRepository extends Repository<Board> {
   // constructor 추가
-  constructor(@InjectRepository(Board) private dataSource: DataSource) {
-    super(Board, dataSource.manager);
+  constructor(
+    @InjectRepository(Board)
+    private dataSource: DataSource) {
+      super(Board, dataSource.manager);
   }
 
   async createBoard(createBoardDto: CreateBoardDto): Promise<Board> {
